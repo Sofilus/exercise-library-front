@@ -9,13 +9,18 @@ fetch('http://localhost:3000/books')
 function createBookList (books){
    
    books.map(book => {
+      let bookTitle = document.createElement("h2");
+      bookTitle.innerHTML = book.name;
 
-   let bookTitle = document.createElement("h2");
-   console.log(bookTitle)
-   bookTitle.innerHTML = book.name;
-   let borrowedOrNot = document.createElement("p");
-   borrowedOrNot.innerHTML = book.borrowed; 
-   bookListContainer.appendChild(bookTitle);
-   bookListContainer.appendChild(borrowedOrNot)
+      let borrowedOrNot = document.createElement("p");
+      
+      if(book.borrowed == true){
+         borrowedOrNot.innerHTML = "Utlånad";
+      } else{
+         borrowedOrNot.innerHTML = "Tillgänglig";
+      }
+      
+      bookListContainer.appendChild(bookTitle);
+      bookListContainer.appendChild(borrowedOrNot)
    })
 }
