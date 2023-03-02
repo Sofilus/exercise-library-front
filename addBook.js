@@ -32,9 +32,9 @@ function addBook () {
    body: JSON.stringify(newBook)
    
 })
-.then(data => {
-   updateBooks(data);
-})
+.then(() => {
+    window.location.replace("/index.html");
+});
 
 }
 
