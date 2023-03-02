@@ -24,7 +24,9 @@ function createBookList (books){
 
       bookListContainer.appendChild(bookTitle);
       bookBorrowedOrNot(book);
-   })      
+      
+   });  
+   addBookLink();    
 }
 
 function bookBorrowedOrNot (book){
@@ -64,4 +66,11 @@ function makeBookBorrowed(e){
 .then(data => {
    updateBooks();
 })
+}
+
+function addBookLink (){
+   let linkToAddBookPage = document.createElement('a')
+   linkToAddBookPage.innerHTML = "Lägg till bok"
+   bookListContainer.appendChild(linkToAddBookPage);
+   linkToAddBookPage.href = "/addBook.html"
 }
