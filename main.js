@@ -19,9 +19,6 @@ function createBookList (books){
       let bookTitle = document.createElement("h2");
       bookTitle.innerHTML = book.name;
 
-      let borrowBtn = document.createElement("button");
-      borrowBtn.innerHTML = "Låna boken"
-
       bookListContainer.appendChild(bookTitle);
       bookBorrowedOrNot(book);
       
@@ -56,7 +53,7 @@ function makeBookBorrowed(e){
    let id = e.currentTarget.id;
 
    fetch('http://localhost:3000/books/borrow', {
-   method: "POSt",
+   method: "POST",
    headers: {
       'Content-Type': 'application/json',
    },
